@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Krishnendu Saji | Software Engineer</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -43,6 +44,11 @@
   </div>
 </section>
 
+<section id="skills" class="section skills">
+  <h2>Skills</h2>
+  <canvas id="skillsRadar" width="400" height="400"></canvas>
+</section>
+
 <section id="work" class="section work">
   <h2>Selected Projects</h2>
   <div class="cards">
@@ -78,12 +84,85 @@
     <a href="https://www.linkedin.com/in/krishnendu.saji" target="_blank">LinkedIn</a> |
     <a href="https://github.com/kris-and-Code" target="_blank">GitHub</a>
   </p>
-  <a href="C:\Users\krishnendu\PORTFOLIO\Kris-and-Code.github.io\Lebenslauf_Saji.pdf" class="btn-primary" download>Download Resume</a>
+  <a href="https://github.com/Kris-and-Code/Kris-and-Code.github.io/blob/main/Lebenslauf_Saji.pdf" class="btn-primary" download>Download Resume</a>
 </section>
 
 <footer>
   <p>&copy; 2025 Krishnendu Saji</p>
 </footer>
+<script>
+  const ctx = document.getElementById('skillsRadar').getContext('2d');
+
+  const data = {
+    labels: [
+      'JavaScript',
+      'TypeScript',
+      'React',
+      'Shopify',
+      'WordPress',
+      'Python',
+      'Machine Learning',
+      'NLP',
+      'Firebase',
+      'Docker',
+      'Git',
+      'REST APIs'
+    ],
+    datasets: [{
+      label: 'Skill Level',
+      data: [90, 85, 80, 75, 70, 80, 65, 70, 75, 60, 85, 80],
+      fill: true,
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(54, 162, 235, 1)'
+    }]
+  };
+
+  const config = {
+    type: 'radar',
+    data: data,
+    options: {
+      scales: {
+        r: {
+          angleLines: {
+            display: true
+          },
+          suggestedMin: 0,
+          suggestedMax: 100,
+          ticks: {
+            stepSize: 20,
+            color: '#333'
+          },
+          pointLabels: {
+            font: {
+              size: 14
+            },
+            color: '#333'
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: '#333',
+            font: { size: 14 }
+          }
+        },
+        tooltip: {
+          enabled: true
+        }
+      },
+      maintainAspectRatio: false,
+      responsive: true
+    },
+  };
+
+  new Chart(ctx, config);
+</script>
+
 
 </body>
 </html>

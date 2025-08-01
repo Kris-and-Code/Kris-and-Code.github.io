@@ -100,3 +100,13 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+
+.skills {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+#skillsRadar {
+  width: 100% !important;
+  height: 400px !important;
+}
