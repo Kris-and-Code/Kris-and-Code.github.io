@@ -1,0 +1,70 @@
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #1a1a1a;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.headshot {
+  width: 180px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  margin-bottom: 1rem;
+}
+
+.cta-buttons {
+  margin-top: 1.5rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: teal;
+  color: white;
+  margin-right: 1rem;
+}
+
+.btn-secondary {
+  background-color: white;
+  border: 2px solid teal;
+  color: teal;
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
