@@ -68,3 +68,49 @@ nav ul {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+.about-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.about-section, .education-section, .skills-section, .resume-section {
+  margin-bottom: 3rem;
+}
+
+.education-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.education-card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-left: 5px solid teal;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.soft-skills {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-left: 0;
+}
+
+.soft-skills li {
+  background-color: #eef6f6;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.resume-section a.btn-primary {
+  text-decoration: none;
+  background-color: teal;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
