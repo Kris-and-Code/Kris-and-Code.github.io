@@ -2,33 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Krishnendu Saji | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Krishnendu Saji | Software Engineer</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <header class="navbar">
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <div class="hero-content fade-in">
-      <img src="assets/images/headshot.jpg" alt="Krishnendu Saji" class="headshot" />
-      <h1>Krishnendu Saji</h1>
-      <p>Crafting responsive, user-focused e-commerce solutions with Shopify and WordPress.</p>
-      <div class="cta-buttons">
-        <a href="contact.html" class="btn-primary">Get in Touch</a>
-        <a href="portfolio.html" class="btn-secondary">Explore My Work</a>
-      </div>
+<header class="navbar">
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <img src="assets/images/headshot.jpg" alt="Krishnendu Saji" class="headshot" />
+  <h1>Krishnendu Saji</h1>
+  <p>Crafting responsive, user-focused e-commerce solutions with Shopify and WordPress.</p>
+  <a href="#contact" class="btn-primary">Get in Touch</a>
+</section>
+
+<section id="about" class="section about">
+  <h2>About Me</h2>
+  <p>
+    I'm a software engineer focused on e-commerce and full-stack development, especially using Shopify and WordPress. As a work student at Harms NutriCare GmbH, I developed scalable Shopify plugins. I’m currently pursuing my M.Eng. in Software Engineering for Industrial Applications at Hochschule Hof, Germany.
+  </p>
+  <div class="timeline">
+    <div>
+      <h3>Hochschule Hof</h3>
+      <p>M.Eng. in Software Engineering for Industrial Applications (2021–2025, Grade: 1.9)</p>
     </div>
-  </section>
+    <div>
+      <h3>Christ Knowledge City, India</h3>
+      <p>B.Tech. in Computer Science (2014–2018)</p>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="section work">
+  <h2>Selected Projects</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Feedback Pulse</h3>
+      <p>Analyzes sentiment/emotions in customer reviews using NLP. Features URL scraping, CSV input, and Firebase backend.</p>
+      <p><strong>Tech:</strong> Python, Flask, Firebase</p>
+    </div>
+    <div class="card">
+      <h3>E-Commerce Analytics Dashboard</h3>
+      <p>Interactive dashboard visualizing sales/review data.</p>
+      <p><strong>Tech:</strong> React, TypeScript, Highcharts, Java, Python</p>
+      <a href="https://github.com/kris-and-Code/ECommerceanalyticsDashboard" target="_blank">GitHub</a>
+    </div>
+    <div class="card">
+      <h3>Password Manager</h3>
+      <p>Secure password generator & storage using Python and cryptography.</p>
+      <a href="https://github.com/kris-and-Code/Password-Manager" target="_blank">GitHub</a>
+    </div>
+    <div class="card">
+      <h3>Model Finder</h3>
+      <p>Evaluates pre-trained sentiment/emotion models using Hugging Face, TensorFlow, scikit-learn.</p>
+      <a href="https://github.com/kris-and-Code/ModelFinder" target="_blank">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <h2>Contact</h2>
+  <p><strong>Email:</strong> <a href="mailto:krishnendu.saji@gmail.com">krishnendu.saji@gmail.com</a></p>
+  <p><strong>Location:</strong> Nürnberg, Germany</p>
+  <p>
+    <a href="https://www.linkedin.com/in/krishnendu.saji" target="_blank">LinkedIn</a> |
+    <a href="https://github.com/kris-and-Code" target="_blank">GitHub</a>
+  </p>
+  <a href="assets/pdf/resume.pdf" class="btn-primary" download>Download Resume</a>
+</section>
+
+<footer>
+  <p>&copy; 2025 Krishnendu Saji</p>
+</footer>
+
 </body>
 </html>
