@@ -1,507 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Krishnendu Saji | Fullstack Software Engineer</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background: #f9f9f9;
-      color: #333;
-    }
-
-    a {
-      color: #2c7a7b;
-      text-decoration: none;
-    }
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      background: #fff;
-      padding: 1rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-    }
-
-    .navbar ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    .navbar a {
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .navbar a:hover {
-      color: #1a5f63;
-      text-decoration: underline;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 5rem 1rem;
-      background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .headshot {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 2rem;
-      border: 4px solid #2c7a7b;
-      box-shadow: 0 8px 20px rgba(44, 122, 123, 0.2);
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: #1a202c;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #4a5568;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .section {
-      padding: 4rem 1rem;
-      max-width: 1000px;
-      margin: 2rem auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #2c7a7b;
-      text-align: center;
-    }
-
-    .timeline div {
-      margin-bottom: 1.5rem;
-      border-left: 4px solid #2c7a7b;
-      padding-left: 1.5rem;
-      background: #f7fafc;
-      padding: 1rem 1.5rem;
-      border-radius: 0 8px 8px 0;
-    }
-
-    .cards {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    .card {
-      background: #f8fafc;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      border: 1px solid #e2e8f0;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(44, 122, 123, 0.15);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #2c7a7b;
-      font-size: 1.3rem;
-    }
-
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .tech-tag {
-      background: #2c7a7b;
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: linear-gradient(135deg, #2c7a7b 0%, #1a5f63 100%);
-      color: #fff;
-      padding: 0.8rem 2rem;
-      border-radius: 8px;
-      margin-top: 2rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(44, 122, 123, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(44, 122, 123, 0.4);
-    }
-
-    .experience-item {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      border-radius: 8px;
-      background: #f8fafc;
-      border-left: 4px solid #2c7a7b;
-    }
-
-    .experience-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-    }
-
-    .company-info h3 {
-      margin: 0;
-      color: #2c7a7b;
-      font-size: 1.2rem;
-    }
-
-    .company-info p {
-      margin: 0.2rem 0;
-      color: #4a5568;
-      font-weight: 500;
-    }
-
-    .date {
-      color: #718096;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .achievements {
-      list-style: none;
-      padding: 0;
-    }
-
-    .achievements li {
-      padding: 0.5rem 0;
-      position: relative;
-      padding-left: 1.5rem;
-    }
-
-    .achievements li:before {
-      content: "▸";
-      color: #2c7a7b;
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem;
-      background: #1a202c;
-      color: #a0aec0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .skill-category {
-      background: #f8fafc;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
-    }
-
-    .skill-category h4 {
-      color: #2c7a7b;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
-
-    .skill-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .skill-list li {
-      padding: 0.3rem 0;
-      color: #4a5568;
-    }
-
-    .highlight-box {
-      background: linear-gradient(135deg, #2c7a7b 0%, #1a5f63 100%);
-      color: white;
-      padding: 2rem;
-      border-radius: 12px;
-      margin: 2rem 0;
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      .experience-header {
-        flex-direction: column;
-      }
-      
-      .hero h1 {
-        font-size: 2rem;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-en="Krishnendu Saji | Fullstack Software Engineer"
+          data-de="Krishnendu Saji | Fullstack Software-Entwickler">
+    Krishnendu Saji | Fullstack Software Engineer
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#f0fdfa',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            }
+          }
+        }
       }
     }
-  </style>
+  </script>
 </head>
-<body>
-
-<header class="navbar">
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-<section id="home" class="hero">
-  <img src="assets/images/headshot.jpg" alt="Krishnendu Saji" class="headshot" />
-  <h1>Krishnendu Saji</h1>
-  <p>Fullstack Software Engineer specializing in Python & React for Enterprise Solutions</p>
-  <div class="highlight-box">
-    <strong></strong> M.Eng. graduate with hands-on experience in Python, React, and modern full-stack development for industrial applications
-  </div>
-  <a href="#contact" class="btn-primary">Get in Touch</a>
-</section>
-
-<section id="about" class="section about">
-  <h2>About Me</h2>
-  <p>
-    As a dedicated software engineer with an M.Eng. in Software Engineering for Industrial Applications (Grade: 1.9), I bring practical experience in full-stack development with Python and React. My background includes developing scalable enterprise solutions, e-commerce platforms, and machine learning applications. Currently based in Nürnberg, Germany, with excellent German (B2) and English skills.
-  </p>
-  <div class="timeline">
-    <div>
-      <h3>Hochschule Hof, Germany</h3>
-      <p><strong>M.Eng. Software Engineering for Industrial Applications</strong> (Oct 2021 – Mar 2025)</p>
-      <p>Grade: 1.9 | Focus: Enterprise Systems, Industrial IoT, Agile Development</p>
-    </div>
-    <div>
-      <h3>MG University, India</h3>
-      <p><strong>B.Tech Computer Science and Engineering</strong> (Jul 2014 – Jul 2018)</p>
-      <p>Strong foundation in software development and system design</p>
-    </div>
-  </div>
-</section>
-
-<section id="experience" class="section">
-  <h2>Professional Experience</h2>
+<body class="font-sans leading-relaxed bg-gray-50 text-gray-800">
   
-  <div class="experience-item">
-    <div class="experience-header">
-      <div class="company-info">
-        <h3>Harms NutriCare GmbH</h3>
-        <p>Fullstack Developer - Werkstudent</p>
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 border-b border-gray-100 navbar">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        
+        <!-- Logo -->
+        <div class="text-xl font-bold text-primary-700">
+          Krishnendu Saji
+        </div>
+        
+        <!-- Desktop Links -->
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="nav-link" data-en="Home" data-de="Start">Home</a>
+          <a href="#about" class="nav-link" data-en="About" data-de="Über mich">About</a>
+          <a href="#experience" class="nav-link" data-en="Experience" data-de="Erfahrung">Experience</a>
+          <a href="#skills" class="nav-link" data-en="Skills" data-de="Fähigkeiten">Skills</a>
+          <a href="#projects" class="nav-link" data-en="Projects" data-de="Projekte">Projects</a>
+          <a href="#contact" class="nav-link" data-en="Contact" data-de="Kontakt">Contact</a>
+        </div>
+
+        <!-- Language + Mobile Menu -->
+        <div class="flex items-center space-x-3">
+          <!-- Language Toggle -->
+          <button id="langToggle" class="language-toggle px-3 py-1 rounded-md bg-primary-600 text-white text-sm font-medium">
+            EN
+          </button>
+          
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden p-2" id="mobileMenuBtn">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
       </div>
-      <div class="date">Feb 2024 - Aug 2024</div>
-    </div>
-    <ul class="achievements">
-      <li>Developed 5+ Shopify plugins using JavaScript and Liquid, improving user retention by 20%</li>
-      <li>Optimized existing codebases, reducing errors by 25% through performance enhancements</li>
-      <li>Collaborated in agile development environment with focus on e-commerce solutions</li>
-    </ul>
-    <div class="tech-stack">
-      <span class="tech-tag">JavaScript</span>
-      <span class="tech-tag">Shopify</span>
-      <span class="tech-tag">Liquid</span>
-      <span class="tech-tag">E-commerce</span>
-    </div>
-  </div>
-
-  <div class="experience-item">
-    <div class="experience-header">
-      <div class="company-info">
-        <h3>Siemens AG</h3>
-        <p>Web Developer for Machine Learning App</p>
-      </div>
-      <div class="date">Feb 2023 - Jul 2023</div>
-    </div>
-    <ul class="achievements">
-      <li>Built full-stack ML prototype using React, TypeScript, and Python</li>
-      <li>Integrated RESTful APIs, reducing latency by 25%</li>
-      <li>Designed responsive, modular UI with ChakraUI for enterprise scalability</li>
-    </ul>
-    <div class="tech-stack">
-      <span class="tech-tag">React</span>
-      <span class="tech-tag">TypeScript</span>
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">REST API</span>
-      <span class="tech-tag">Machine Learning</span>
-    </div>
-  </div>
-
-  <div class="experience-item">
-    <div class="experience-header">
-      <div class="company-info">
-        <h3>Fragomen, Del Rey, Bernsen & Loewy</h3>
-        <p>Business Analyst</p>
-      </div>
-      <div class="date">Mar 2021 - Oct 2021</div>
-    </div>
-    <ul class="achievements">
-      <li>Analyzed datasets to inform strategic decisions, reducing project costs by 12%</li>
-      <li>Managed full business analysis lifecycle with focus on process improvement</li>
-      <li>Led cross-functional projects reducing delays by 18% through process optimization</li>
-    </ul>
-  </div>
-</section>
-
-<section id="skills" class="section">
-  <h2>Technical Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-category">
-      <h4>Frontend Development</h4>
-      <ul class="skill-list">
-        <li>React & TypeScript</li>
-        <li>JavaScript (ES6+)</li>
-        <li>HTML5 & CSS3</li>
-        <li>Responsive Design</li>
-        <li>ChakraUI, Tailwind CSS</li>
-      </ul>
-    </div>
-    <div class="skill-category">
-      <h4>Backend Development</h4>
-      <ul class="skill-list">
-        <li>Python & Flask</li>
-        <li>Node.js</li>
-        <li>REST APIs</li>
-        <li>PostgreSQL, MongoDB</li>
-        <li>InfluxDB, TimescaleDB</li>
-      </ul>
-    </div>
-    <div class="skill-category">
-      <h4>DevOps & Infrastructure</h4>
-      <ul class="skill-list">
-        <li>Docker & Kubernetes</li>
-        <li>CI/CD Pipelines</li>
-        <li>Linux System Administration</li>
-        <li>Git & Version Control</li>
-        <li>Automated Testing</li>
-      </ul>
-    </div>
-    <div class="skill-category">
-      <h4>Enterprise Technologies</h4>
-      <ul class="skill-list">
-        <li>Microservices Architecture</li>
-        <li>System Monitoring</li>
-        <li>Database Design</li>
-        <li>Security Implementation</li>
-        <li>Performance Optimization</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="projects" class="section work">
-  <h2>Key Projects</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Feedback Pulse Platform</h3>
-      <p>Master's thesis project: Cloud-based NLP application for e-commerce review analysis with sentiment and emotion recognition. Features URL scraping, CSV uploads, and Firebase backend storage.</p>
-      <div class="tech-stack">
-        <span class="tech-tag">Python</span>
-        <span class="tech-tag">React</span>
-        <span class="tech-tag">TypeScript</span>
-        <span class="tech-tag">Firebase</span>
-        <span class="tech-tag">NLP</span>
-        <span class="tech-tag">Docker</span>
+      
+      <!-- Mobile Menu -->
+      <div class="md:hidden hidden" id="mobileMenu">
+        <div class="py-4 space-y-2 border-t border-gray-100">
+          <a href="#home" class="mobile-nav-link" data-en="Home" data-de="Start">Home</a>
+          <a href="#about" class="mobile-nav-link" data-en="About" data-de="Über mich">About</a>
+          <a href="#experience" class="mobile-nav-link" data-en="Experience" data-de="Erfahrung">Experience</a>
+          <a href="#skills" class="mobile-nav-link" data-en="Skills" data-de="Fähigkeiten">Skills</a>
+          <a href="#projects" class="mobile-nav-link" data-en="Projects" data-de="Projekte">Projects</a>
+          <a href="#contact" class="mobile-nav-link" data-en="Contact" data-de="Kontakt">Contact</a>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <h3>Multi-Host Water Monitoring Infrastructure</h3>
-      <p>Containerized system for distributed water treatment facility monitoring with multi-host deployment across 3 VMs using Docker Compose orchestration and InfluxDB for real-time metrics.</p>
-      <div class="tech-stack">
-        <span class="tech-tag">Docker</span>
-        <span class="tech-tag">InfluxDB</span>
-        <span class="tech-tag">React</span>
-        <span class="tech-tag">Nginx</span>
-        <span class="tech-tag">Linux</span>
-      </div>
-      <a href="https://github.com/kris-and-Code/water-monitoring" target="_blank">GitHub</a>
-    </div>
-    <div class="card">
-      <h3>Multi-Service Docker Architecture</h3>
-      <p>Microservices architecture with Docker Compose orchestration managing React frontend, Node.js backend, PostgreSQL database with container networking and automated health monitoring.</p>
-      <div class="tech-stack">
-        <span class="tech-tag">Docker Compose</span>
-        <span class="tech-tag">React</span>
-        <span class="tech-tag">Node.js</span>
-        <span class="tech-tag">PostgreSQL</span>
-        <span class="tech-tag">Microservices</span>
+  </nav>
+
+    <!-- Hero Section -->
+  <section id="home" class="pt-20 pb-16 bg-gradient-to-br from-white to-gray-50">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <div class="mb-8">
+        <img src="assets/images/headshot.jpg" alt="Krishnendu Saji" 
+             class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-primary-500 shadow-lg object-cover">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Krishnendu Saji
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto"
+           data-en="Fullstack Software Engineer specializing in Python & React for Enterprise Solutions"
+           data-de="Fullstack Software-Entwickler spezialisiert auf Python & React für Unternehmenslösungen">
+          Fullstack Software Engineer specializing in Python & React for Enterprise Solutions
+        </p>
       </div>
     </div>
-    <div class="card">
-      <h3>E-Commerce Analytics Dashboard</h3>
-      <p>Full-stack web application analyzing e-commerce data with interactive visualizations. Implements sentiment analysis and provides actionable business insights.</p>
-      <div class="tech-stack">
-        <span class="tech-tag">React</span>
-        <span class="tech-tag">TypeScript</span>
-        <span class="tech-tag">FastAPI</span>
-        <span class="tech-tag">Python</span>
-        <span class="tech-tag">Recharts</span>
-      </div>
-      <a href="https://github.com/kris-and-Code/ECommerceanalyticsDashboard" target="_blank">GitHub</a>
+  </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="section-title" data-en="About Me" data-de="Über mich">About Me</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <p class="text-lg text-gray-600 mb-6" 
+                       data-en="As a dedicated software engineer with an M.Eng. in Software Engineering for Industrial Applications (Grade: 1.9), I bring practical experience in full-stack development with Python and React. My background includes developing scalable enterprise solutions, e-commerce platforms, and machine learning applications."
+                       data-de="Als engagierter Software-Entwickler mit einem M.Eng. in Software Engineering for Industrial Applications (Note: 1,9) bringe ich praktische Erfahrung in der Full-Stack-Entwicklung mit Python und React mit. Mein Hintergrund umfasst die Entwicklung skalierbarer Unternehmenslösungen, E-Commerce-Plattformen und Machine-Learning-Anwendungen.">
+                        As a dedicated software engineer with an M.Eng. in Software Engineering for Industrial Applications (Grade: 1.9), I bring practical experience in full-stack development with Python and React. My background includes developing scalable enterprise solutions, e-commerce platforms, and machine learning applications.
+                    </p>
+                    <p class="text-lg text-gray-600" 
+                       data-en="Currently based in Nürnberg, Germany, with excellent German (B2) and English (C1) skills, I'm ready to contribute to innovative software projects in enterprise environments."
+                       data-de="Derzeit wohnhaft in Nürnberg, Deutschland, mit ausgezeichneten Deutsch- (B2) und Englischkenntnissen (C1), bin ich bereit, zu innovativen Software-Projekten in Unternehmensumgebungen beizutragen.">
+                        Currently based in Nürnberg, Germany, with excellent German (B2) and English (C1) skills, I'm ready to contribute to innovative software projects in enterprise environments.
+                    </p>
+                </div>
+                
+                <!-- Education Timeline -->
+                <div class="space-y-6">
+                    <div class="timeline-item">
+                        <h3 class="text-xl font-semibold text-primary-700 mb-2">Hochschule Hof, Germany</h3>
+                        <p class="font-medium text-gray-800 mb-1" 
+                           data-en="M.Eng. Software Engineering for Industrial Applications"
+                           data-de="M.Eng. Software Engineering für industrielle Anwendungen">
+                           M.Eng. Software Engineering for Industrial Applications
+                        </p>
+                        <p class="text-gray-600 mb-2">Oct 2021 – Mar 2025 | Grade: 1.9</p>
+                        <p class="text-sm text-gray-600" 
+                           data-en="Focus: Enterprise Systems, Industry 4.0, Agile Development"
+                           data-de="Schwerpunkt: Unternehmenssysteme, Industry 4.0, Agile Entwicklung">
+                           Focus: Enterprise Systems, Industry 4.0, Agile Development
+                        </p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3 class="text-xl font-semibold text-primary-700 mb-2">MG University, India</h3>
+                        <p class="font-medium text-gray-800 mb-1" 
+                           data-en="B.Tech Computer Science and Engineering"
+                           data-de="B.Tech Informatik und Ingenieurwesen">
+                           B.Tech Computer Science and Engineering
+                        </p>
+                        <p class="text-gray-600 mb-2">Jul 2014 – Jul 2018</p>
+                        <p class="text-sm text-gray-600" 
+                           data-en="Strong foundation in software development and system design"
+                           data-de="Solide Grundlage in Softwareentwicklung und Systemdesign">
+                           Strong foundation in software development and system design
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="section-title" data-en="Professional Experience" data-de="Berufserfahrung">Professional Experience</h2>
+            
+            <div class="space-y-8">
+                <!-- Experience Item 1 -->
+                <div class="experience-card">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-primary-700">Harms NutriCare GmbH</h3>
+                            <p class="text-lg font-medium text-gray-800" 
+                               data-en="Fullstack Developer - Werkstudent"
+                               data-de="Fullstack-Entwickler - Werkstudent">
+                               Fullstack Developer - Werkstudent
+                            </p>
+                            <p class="text-gray-600">Wiesmoor, Germany</p>
+                        </div>
+                        <div class="text-primary-600 font-medium mt-2 md:mt-0">
+                            Feb 2024 - Aug 2024
+                        </div>
+                    </div>
+                    
+                    <ul class="achievement-list mb-4">
+                        <li data-en="Developed 5+ Shopify plugins using JavaScript and Liquid, improving user retention by 20%"
+                            data-de="Entwickelt 5+ Shopify-Plugins mit JavaScript und Liquid, Verbesserung der Nutzerbindung um 20%">
+                            Developed 5+ Shopify plugins using JavaScript and Liquid, improving user retention by 20%
+                        </li>
+                        <li data-en="Optimized existing codebases, reducing errors by 25% through performance enhancements"
+                            data-de="Optimierte bestehende Codebasen, Reduzierung von Fehlern um 25% durch Leistungsverbesserungen">
+                            Optimized existing codebases, reducing errors by 25% through performance enhancements
+                        </li>
+                        <li data-en="Collaborated in agile development environment with focus on e-commerce solutions"
+                            data-de="Zusammenarbeit in agiler Entwicklungsumgebung mit Fokus auf E-Commerce-Lösungen">
+                            Collaborated in agile development environment with focus on e-commerce solutions
+                        </li>
+                    </ul>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Shopify</span>
+                        <span class="tech-tag">Liquid</span>
+                        <span class="tech-tag">E-commerce</span>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="experience-card">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-primary-700">Siemens AG</h3>
+                            <p class="text-lg font-medium text-gray-800" 
+                               data-en="Web Developer for Machine Learning App"
+                               data-de="Web-Entwickler für Machine Learning App">
+                               Web Developer for Machine Learning App
+                            </p>
+                            <p class="text-gray-600">Munich, Germany</p>
+                        </div>
+                        <div class="text-primary-600 font-medium mt-2 md:mt-0">
+                            Feb 2023 - Jul 2023
+                        </div>
+                    </div>
+                    
+                    <ul class="achievement-list mb-4">
+                        <li data-en="Built full-stack ML prototype using React, TypeScript, and Python"
+                            data-de="Entwickelte Full-Stack-ML-Prototyp mit React, TypeScript und Python">
+                            Built full-stack ML prototype using React, TypeScript, and Python
+                        </li>
+                        <li data-en="Integrated RESTful APIs, reducing latency by 25%"
+                            data-de="Integrierte RESTful-APIs, Reduzierung der Latenz um 25%">
+                            Integrated RESTful APIs, reducing latency by 25%
+                        </li>
+                        <li data-en="Designed responsive, modular UI with ChakraUI for enterprise scalability"
+                            data-de="Entwarf responsive, modulare UI mit ChakraUI für Unternehmensskalierbarkeit">
+                            Designed responsive, modular UI with ChakraUI for enterprise scalability
+                        </li>
+                    </ul>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">REST API</span>
+                        <span class="tech-tag">Machine Learning</span>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div class="experience-card">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-primary-700">Fragomen, Del Rey, Bernsen & Loewy</h3>
+                            <p class="text-lg font-medium text-gray-800" 
+                               data-en="Business Analyst"
+                               data-de="Business Analyst">
+                               Business Analyst
+                            </p>
+                            <p class="text-gray-600">Kochi, India</p>
+                        </div>
+                        <div class="text-primary-600 font-medium mt-2 md:mt-0">
+                            Mar 2021 - Oct 2021
+                        </div>
+                    </div>
+                    
+                    <ul class="achievement-list mb-4">
+                        <li data-en="Analyzed datasets to inform strategic decisions, reducing project costs by 12%"
+                            data-de="Analysierte Datensätze zur Information strategischer Entscheidungen, Reduzierung der Projektkosten um 12%">
+                            Analyzed datasets to inform strategic decisions, reducing project costs by 12%
+                        </li>
+                        <li data-en="Managed full business analysis lifecycle with focus on process improvement"
+                            data-de="Verwaltete vollständigen Business-Analyse-Lebenszyklus mit Fokus auf Prozessverbesserung">
+                            Managed full business analysis lifecycle with focus on process improvement
+                        </li>
+                        <li data-en="Led cross-functional projects reducing delays by 18% through process optimization"
+                            data-de="Leitete funktionsübergreifende Projekte, Reduzierung von Verzögerungen um 18% durch Prozessoptimierung">
+                            Led cross-functional projects reducing delays by 18% through process optimization
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="section-title" data-en="Technical Skills" data-de="Technische Fähigkeiten">Technical Skills</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="skill-category">
+                    <h4 class="skill-category-title" data-en="Frontend Development" data-de="Frontend-Entwicklung">Frontend Development</h4>
+                    <ul class="skill-list">
+                        <li>React & TypeScript</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>HTML5 & CSS3</li>
+                        <li data-en="Responsive Design" data-de="Responsive Design">Responsive Design</li>
+                        <li>ChakraUI, Tailwind CSS</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4 class="skill-category-title" data-en="Backend Development" data-de="Backend-Entwicklung">Backend Development</h4>
+                    <ul class="skill-list">
+                        <li>Python & Flask</li>
+                        <li>Node.js</li>
+                        <li>REST APIs</li>
+                        <li>PostgreSQL, MongoDB</li>
+                        <li>InfluxDB, TimescaleDB</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4 class="skill-category-title" data-en="DevOps & Infrastructure" data-de="DevOps & Infrastruktur">DevOps & Infrastructure</h4>
+                    <ul class="skill-list">
+                        <li>Docker & Kubernetes</li>
+                        <li>CI/CD Pipelines</li>
+                        <li data-en="Linux System Administration" data-de="Linux-Systemadministration">Linux System Administration</li>
+                        <li data-en="Git & Version Control" data-de="Git & Versionskontrolle">Git & Version Control</li>
+                        <li data-en="Automated Testing" data-de="Automatisierte Tests">Automated Testing</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4 class="skill-category-title" data-en="Enterprise Technologies" data-de="Unternehmenstechnologien">Enterprise Technologies</h4>
+                    <ul class="skill-list">
+                        <li data-en="Microservices Architecture" data-de="Mikroservice-Architektur">Microservices Architecture</li>
+                        <li data-en="System Monitoring" data-de="Systemüberwachung">System Monitoring</li>
+                        <li data-en="Database Design" data-de="Datenbankdesign">Database Design</li>
+                        <li data-en="Security Implementation" data-de="Sicherheitsimplementierung">Security Implementation</li>
+                        <li data-en="Performance Optimization" data-de="Leistungsoptimierung">Performance Optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="section-title" data-en="Key Projects" data-de="Wichtige Projekte">Key Projects</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3 class="project-title" data-en="Feedback Pulse Platform" data-de="Feedback Pulse Plattform">Feedback Pulse Platform</h3>
+                    <p class="project-description" 
+                       data-en="Master's thesis project: Cloud-based NLP application for e-commerce review analysis with sentiment and emotion recognition. Features URL scraping, CSV uploads, and Firebase backend storage."
+                       data-de="Masterarbeitsprojekt: Cloud-basierte NLP-Anwendung für E-Commerce-Bewertungsanalyse mit Sentiment- und Emotionserkennung. Bietet URL-Scraping, CSV-Uploads und Firebase-Backend-Speicherung.">
+                        Master's thesis project: Cloud-based NLP application for e-commerce review analysis with sentiment and emotion recognition. Features URL scraping, CSV uploads, and Firebase backend storage.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3 class="project-title" 
+                       data-en="Multi-Host Water Monitoring Infrastructure" 
+                       data-de="Multi-Host Wasserüberwachungsinfrastruktur">
+                        Multi-Host Water Monitoring Infrastructure
+                    </h3>
+                    <p class="project-description" 
+                       data-en="Containerized system for distributed water treatment facility monitoring with multi-host deployment across 3 VMs using Docker Compose orchestration and InfluxDB for real-time metrics."
+                       data-de="Containerisiertes System für die verteilte Überwachung von Wasseraufbereitungsanlagen mit Multi-Host-Bereitstellung auf 3 VMs unter Verwendung von Docker Compose-Orchestrierung und InfluxDB für Echtzeitmetriken.">
+                        Containerized system for distributed water treatment facility monitoring with multi-host deployment across 3 VMs using Docker Compose orchestration and InfluxDB for real-time metrics.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">InfluxDB</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Nginx</span>
+                        <span class="tech-tag">Linux</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <h3 class="project-title" 
+                       data-en="Multi-Service Docker Architecture" 
+                       data-de="Multi-Service Docker-Architektur">
+                        Multi-Service Docker Architecture
+                    </h3>
+                    <p class="project-description" 
+                       data-en="Microservices architecture with Docker Compose orchestration managing React frontend, Node.js backend, PostgreSQL database with container networking and automated health monitoring."
+                       data-de="Mikroservice-Architektur mit Docker Compose-Orchestrierung, die React-Frontend, Node.js-Backend, PostgreSQL-Datenbank mit Container-Networking und automatisierter Gesundheitsüberwachung verwaltet.">
+                        Microservices architecture with Docker Compose orchestration managing React frontend, Node.js backend, PostgreSQL database with container networking and automated health monitoring.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Docker Compose</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Microservices</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <h3 class="project-title" 
+                       data-en="E-Commerce Analytics Dashboard" 
+                       data-de="E-Commerce Analytics Dashboard">
+                        E-Commerce Analytics Dashboard
+                    </h3>
+                    <p class="project-description" 
+                       data-en="Full-stack web application analyzing e-commerce data with interactive visualizations. Implements sentiment analysis and provides actionable business insights."
+                       data-de="Full-Stack-Webanwendung zur Analyse von E-Commerce-Daten mit interaktiven Visualisierungen. Implementiert Sentimentanalyse und bietet umsetzbare Geschäftseinblicke.">
+                        Full-stack web application analyzing e-commerce data with interactive visualizations. Implements sentiment analysis and provides actionable business insights.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Recharts</span>
+                    </div>
+                    <!-- <a href="https://github.com/kris-and-Code/ECommerceanalyticsDashboard" target="_blank" 
+                       class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
+                        GitHub →
+                    </a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="section-title" data-en="Contact Information" data-de="Kontaktinformationen">Contact Information</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4" data-en="Get in Touch" data-de="Kontakt aufnehmen">Get in Touch</h3>
+                    <div class="space-y-3 text-left">
+                        <p><strong data-en="Email" data-de="E-Mail">Email:</strong> 
+                           <a href="mailto:krishnendusajim@gmail.com" class="text-primary-600 hover:text-primary-700">
+                               krishnendusajim@gmail.com
+                           </a>
+                        </p>
+                        <p><strong data-en="Location" data-de="Standort">Location:</strong> Nürnberg, Germany</p>
+                        <!-- <p><strong data-en="Languages" data-de="Sprachen">Languages:</strong> 
+                           <span data-en="English (C1), German (B2 laufend), Malayalam (Native)" 
+                                 data-de="Englisch (C1), Deutsch (B2 laufend), Malayalam (Muttersprache)">
+                               English (C1), German (B2 - laufend), Malayalam (Native)
+                           </span>
+                        </p> -->
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4" data-en="Professional Links" data-de="Professionelle Links">Professional Links</h3>
+                    <div class="space-y-3">
+                        <p>
+                            <a href="https://www.linkedin.com/in/krishnendu.saji" target="_blank" 
+                               class="text-primary-600 hover:text-primary-700 font-medium">
+                                LinkedIn Profile →
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/kris-and-Code" target="_blank" 
+                               class="text-primary-600 hover:text-primary-700 font-medium">
+                                GitHub Profile →
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Availability Box -->
+            <div class="bg-gradient-to-r from-primary-600 to-primary-700 text-white p-6 rounded-xl shadow-lg mb-8">
+                <p class="text-lg font-semibold" 
+                   data-en="Available immediately • Open to relocation • German work authorization"
+                   data-de="Sofort verfügbar • Umzugsbereit • Deutsche Arbeitserlaubnis">
+                   Available immediately • Open to relocation • German work authorization
+                </p>
+            </div>
+            
+            <a href="assets/resume/Lebenslauf_Saji.pdf" 
+              download="Lebenslauf_Saji.pdf"
+              class="inline-flex items-center px-3 py-1.5 text-sm rounded-md bg-primary-600 text-white hover:bg-primary-700 transition-colors w-auto max-w-max">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+                </svg>
+                <span data-en="Download Resume" data-de="Lebenslauf herunterladen">Download Resume</span>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <p data-en="© 2025 Krishnendu Saji - Fullstack Software Engineer" 
+         data-de="© 2025 Krishnendu Saji - Fullstack Software-Entwickler">
+         © 2025 Krishnendu Saji - Fullstack Software Engineer
+      </p>
     </div>
-  </div>
-</section>
+  </footer>
 
-<section id="contact" class="section contact">
-  <h2>Contact Information</h2>
-  <p><strong>Email:</strong> <a href="mailto:krishnendusajim@gmail.com">krishnendusajim@gmail.com</a></p>
-  <p><strong>Location:</strong> Nürnberg, Germany (Work permit available)</p>
-  <p><strong>Languages:</strong> English (C1), German (B2), Malayalam (Native)</p>
-  <p>
-    <a href="https://www.linkedin.com/in/krishnendu.saji" target="_blank">LinkedIn</a> |
-    <a href="https://github.com/kris-and-Code" target="_blank">GitHub</a>
-  </p>
-  <div class="highlight-box">
-    <p><strong>Available immediately</strong> • Open to relocation • German work authorization</p>
-  </div>
-  <a href="https://github.com/Kris-and-Code/Kris-and-Code.github.io/blob/main/Lebenslauf_Saji.pdf" class="btn-primary" download>Download Resume</a>
-</section>
-
-<footer>
-  <p>&copy; 2025 Krishnendu Saji - Fullstack Software Engineer</p>
-</footer>
-
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
